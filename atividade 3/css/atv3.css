@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ← só no body, não no html */
+}
+
+
+/* Corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header/logo */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* === Navbar === */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+}
+
+
+.navbar-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+}
+
+
+
+/* Links */
+.navbar-links {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar a {
+  color: white;
+  padding: 10px 14px;
+  text-decoration: none;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Botão tema escuro */
+#toggle-theme {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#toggle-theme:hover {
+  background-color: #575757;
+}
+
+/* Botão menu hamburguer */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Colunas */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  flex-shrink: 1;
+}
+
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+  flex-shrink: 1;
+}
+
+/* Imagem falsa */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Rodapé */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Bloco aviso */
+.div {
+  background: yellow;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Códigos e textos longos */
+pre, code {
+  word-wrap: break-word;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* === Responsividade Mobile === */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #menu-toggle {
+    display: block;
+    padding: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  #toggle-theme {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .navbar a {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .main, .side {
+    width: 100%;
+    flex: 100%;
+    padding: 16px;
+  }
+}
+
+
+/* === Tema Escuro === */
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme .header {
+  background-color: #0f8170;
+}
+
+body.dark-theme .navbar {
+  background-color: #1e1e1e;
+}
+
+body.dark-theme .navbar a {
+  color: #ccc;
+}
+
+body.dark-theme .navbar a:hover {
+  background-color: #444;
+  color: white;
+}
+
+body.dark-theme #toggle-theme {
+  background-color: #1e1e1e;
+  color: #ccc;
+}
+
+body.dark-theme #toggle-theme:hover {
+  background-color: #333;
+}
+
+body.dark-theme .side {
+  background-color: #222;
+}
+
+body.dark-theme .main {
+  background-color: #333;
+}
+
+body.dark-theme .footer {
+  background-color: #000;
+  color: #ccc;
+}
+
+body.dark-theme .fakeimg {
+  background-color: #444;
+}
+
+body.dark-theme .div {
+  background: #333;
+  color: #ccc;
+}

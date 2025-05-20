@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>W3Schools - Guia Completo</title>
+    <link rel="stylesheet" type="text/css" href="css/atv3.css">
+</head>
+<!-- Navegação -->
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-top">
+                <button id="menu-toggle">☰</button>
+                <button id="toggle-theme">🌙</button>
+            </div>
+            <div class="navbar-links" id="navbar-links">
+                <a href="#html">HTML</a>
+                <a href="#css">CSS</a>
+                <a href="#js">JavaScript</a>
+                <a href="#flexbox">Flexbox</a>
+                <a href="#forms">Forms</a>
+                <a href="#media">Media Queries</a>
+                <a href="#api">APIs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <h1>W3Schools</h1>
+        <p>Explore os principais tópicos de desenvolvimento Web com exemplos claros e práticos</p>
+    </header>
+
+
+    <main class="row">
+
+        <!-- Barra Lateral -->
+        <aside class="side">
+            <section id="flexbox">
+                <h2>Flexbox</h2>
+                <p>Flexbox (Flexible Box Layout) é um modelo de layout do CSS que organiza elementos de forma eficiente
+                    dentro de containers, mesmo quando o tamanho é desconhecido ou dinâmico.</p>
+
+                <h3>Container Flexível</h3>
+                <p>Para começar, defina o elemento pai com:</p>
+                <pre><code>display: flex;</code></pre>
+
+                <h3>Propriedades do Container:</h3>
+                <ul>
+                    <li><code>flex-direction</code>: row | column</li>
+                    <li><code>justify-content</code>: alinha horizontalmente (start, center, space-between...)</li>
+                    <li><code>align-items</code>: alinha verticalmente (start, center, stretch...)</li>
+                    <li><code>flex-wrap</code>: define se os itens quebram linha</li>
+                </ul>
+
+                <h3>Propriedades dos Itens:</h3>
+                <ul>
+                    <li><code>flex-grow</code>: quanto o item cresce</li>
+                    <li><code>flex-shrink</code>: quanto o item encolhe</li>
+                    <li><code>flex-basis</code>: tamanho inicial do item</li>
+                    <li><code>align-self</code>: alinha individualmente um item</li>
+                </ul>
+
+                <h3>Exemplo de Código Completo:</h3>
+                <pre><code>.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}</code></pre>
+
+                <p><strong>Dica:</strong> Use <code>gap</code> para espaçamento entre os itens sem precisar de
+                    <code>margin</code> manual!
+                </p>
+            </section>
+        </aside>
+
+
+        <!-- Conteúdo Principal -->
+        <section class="main">
+
+            <!-- HTML -->
+            <article id="html">
+                <h2>HTML - Linguagem de Marcação</h2>
+                <p>HTML é a base da web. Define a estrutura das páginas usando tags como:</p>
+                <ul>
+                    <li><code>&lt;h1&gt; a &lt;h6&gt;</code>: Títulos</li>
+                    <li><code>&lt;p&gt;</code>: Parágrafos</li>
+                    <li><code>&lt;a&gt;</code>: Links</li>
+                    <li><code>&lt;img&gt;</code>: Imagens</li>
+                </ul>
+                <h3>Exemplo:</h3>
+                <pre><code>&lt;a href="https://www.w3schools.com"&gt;Visite o W3Schools&lt;/a&gt;</code></pre>
+
+                <h3>Listas HTML</h3>
+                <p>Existem listas ordenadas e não ordenadas:</p>
+                <pre><code>&lt;ul&gt;
+  &lt;li&gt;Maçã&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Primeiro&lt;/li&gt;
+  &lt;li&gt;Segundo&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+                <h3>Tabelas HTML</h3>
+                <pre><code>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Nome&lt;/th&gt;&lt;th&gt;Idade&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Ana&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </article>
+
+            <!-- CSS -->
+            <article id="css">
+                <h2>CSS - Estilo das Páginas</h2>
+                <p>CSS define estilos visuais para elementos HTML. Pode ser interno, externo ou inline.</p>
+
+                <h3>Exemplo:</h3>
+                <pre><code>p {
+  color: darkblue;
+  font-size: 18px;
+}</code></pre>
+
+                <h3>Box Model</h3>
+                <p>O modelo de caixa inclui:</p>
+                <ul>
+                    <li>Content</li>
+                    <li>Padding</li>
+                    <li>Border</li>
+                    <li>Margin</li>
+                </ul>
+            </article>
+
+            <!-- JavaScript -->
+            <article id="js">
+                <h2>JavaScript - Comportamento da Página</h2>
+                <p>JavaScript permite adicionar interatividade à página.</p>
+
+                <h3>Exemplo de função:</h3>
+                <pre><code>&lt;button onclick="mostrarAlerta()"&gt;Clique&lt;/button&gt;
+
+&lt;script&gt;
+function mostrarAlerta() {
+  alert("Olá! Isso é JavaScript.");
+}
+&lt;/script&gt;</code></pre>
+
+                <h3>Manipulando o DOM</h3>
+                <pre><code>document.getElementById("demo").innerText = "Texto alterado";</code></pre>
+            </article>
+
+            <!-- Formulários -->
+            <article id="forms">
+                <h2>Formulários HTML</h2>
+                <p>Formulários capturam dados do usuário e podem ser enviados para um servidor.</p>
+                <form>
+                    <label for="nome">Nome:</label><br>
+                    <input type="text" id="nome" name="nome"><br><br>
+
+                    <label for="email">E-mail:</label><br>
+                    <input type="email" id="email" name="email"><br><br>
+
+                    <label for="mensagem">Mensagem:</label><br>
+                    <textarea id="mensagem" name="mensagem"></textarea><br><br>
+
+                    <input type="submit" value="Enviar">
+                </form>
+            </article>
+
+            <!-- Media Queries -->
+            <article id="media">
+                <h2>Media Queries - Responsividade</h2>
+                <p>Media queries adaptam o estilo da página para diferentes tamanhos de tela.</p>
+                <h3>Exemplo:</h3>
+                <pre><code>@media (max-width: 600px) {
+  body {
+    background-color: lightgray;
+  }
+}</code></pre>
+            </article>
+
+            <!-- APIs -->
+            <article id="api">
+                <h2>APIs com JavaScript</h2>
+                <p>APIs permitem conectar sua página com dados externos.</p>
+                <h3>Exemplo com Fetch:</h3>
+                <pre><code>fetch('https://api.exemplo.com/dados')
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data));</code></pre>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <h2>Rodapé</h2>
+        <p>Todos os exemplos foram baseados em <a href="https://www.w3schools.com" target="_blank">W3Schools</a>.</p>
+    </footer>
+
+    <script src="js/atv3.js"></script>
+</body>
+
+</html>

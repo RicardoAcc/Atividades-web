@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #0c2b68;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .side {
+        flex: 30%;
+        background-color: #f1f1f1;
+        padding: 20px;
+        flex-shrink: 1;
+        }
+
+        .main {
+            flex: 70%;
+            padding: 15px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 10px;
+        }
+        @media screen and (max-width: 400px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .main, .side {
+                width: 100%;
+                flex: 100%;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<!-- Navegação -->
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <h1>Desenvolvimento de Software WEB</h1>
+    </header>
+
+
+    <main class="row">
+
+        <!-- Barra Lateral -->
+        <aside class="side">
+            <section id="flexbox">
+                <a>Link 1</a>
+                <a>Link 2</a>
+                <a>Link 3</a>
+                <a>Link 4</a>
+            </section>
+        </aside>
+
+
+        <!-- Conteúdo Principal -->
+        <section class="main">
+            <h2>Introdução ao HTML</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra lobortis tellus, sit amet vulputate justo. Fusce maximus vestibulum nulla sed suscipit. Praesent ultrices rhoncus lectus at efficitur. Donec consequat sagittis placerat. Praesent at purus sem. Nullam nisi eros, porta vitae turpis ac, mattis vestibulum ex. Nunc sed lectus massa. Phasellus sit amet sagittis urna, id mattis felis. Donec nunc ipsum, blandit sit amet nisl in, volutpat gravida quam.</p>
+            <img src="../img/favicon.jpg" alt="Imagem de exemplo 1" width="300" height="200">
+            <p>Mauris a condimentum magna. Vestibulum interdum dignissim augue, vitae condimentum magna. Donec venenatis scelerisque turpis, venenatis molestie ipsum. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas fringilla sit amet purus at cursus. Curabitur vel laoreet tellus. Curabitur sit amet ex eget elit vehicula laoreet nec vel turpis. Sed sed urna aliquet, mollis enim ac, euismod lorem.</p>
+            <img src="../img/favicon.jpg" alt="Imagem de exemplo 2" width="300" height="200">
+            <p>Praesent aliquam at tellus sit amet vehicula. Sed congue sagittis lobortis. Integer interdum enim massa, cursus congue mi tempor ac. Mauris tincidunt tincidunt sagittis. Suspendisse nec nisi nisi. In euismod nec lorem vel mollis. Vestibulum eu elementum libero, id facilisis tortor.</p>
+            <img src="../img/favicon.jpg" alt="Imagem de exemplo 3" width="300" height="200">
+            <p>Nunc condimentum non leo sit amet scelerisque. Proin congue fringilla rutrum. Phasellus quis semper lacus, porttitor viverra lorem. Nunc sagittis augue vel ipsum maximus porttitor. Maecenas blandit molestie semper. Donec non massa nec nibh ultrices pulvinar eu ac orci. In quis lorem orci. Curabitur placerat lacinia enim eu auctor. Nulla nibh ligula, tristique in lacinia eu, scelerisque eget quam. Sed suscipit sollicitudin felis, ac mollis ex tristique nec.</p>
+            <img src="../img/favicon.jpg" alt="Imagem de exemplo 4" width="300" height="200">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h3>ricardoandradecc0@gmail.com</h3>
+        <h3>2025.1</h3>
+        <h3>Todos os direitos reservados</h3>
+    </footer>
+</body>
+
+</html>

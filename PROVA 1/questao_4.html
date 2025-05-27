@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container p {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .notification-card {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 250px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .card-header {
+            color: white;
+            padding: 10px;
+            text-align: right;
+            
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .card-content {
+            padding: 15px;
+            text-align: left;
+            font-family: arial;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .card-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in molestie metus. Phasellus vitae ipsum
+            blandit, mollis nisi sed, faucibus urna. Morbi feugiat sed dolor id facilisis. Integer dictum, leo a
+            lobortis semper, urna turpis dictum risus, a dictum nunc ex pellentesque mauris. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse a ex in nulla tempor
+            rutrum nec nec libero. Sed non enim egestas, vestibulum tortor ut, scelerisque ante. Vestibulum imperdiet
+            maximus tortor vel ultricies. Cras cursus tortor sagittis urna tristique, sit amet auctor ligula fringilla.
+            Nam purus augue, fermentum quis facilisis ut, condimentum a est. Duis vel ullamcorper velit. Maecenas nisi
+            mauris, ullamcorper at sem ut, laoreet posuere nibh.</p>
+        <p>Mauris maximus, massa in vehicula venenatis, diam ipsum maximus massa, id egestas augue magna sed arcu. Fusce
+            blandit condimentum tortor vel cursus. Duis maximus mattis vestibulum. Sed nulla velit, aliquet ut finibus
+            in, fringilla ac lorem. Ut ac nibh sed justo scelerisque pretium. Suspendisse potenti. Nullam feugiat sit
+            amet erat at pretium. Donec in tempus nibh. Orci varius natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Morbi vel facilisis justo. Nullam suscipit commodo tortor, in aliquet nulla
+            convallis bibendum. Duis id cursus urna. Sed dui orci, porta gravida justo et, tincidunt posuere nulla.</p>
+        <p>Praesent vitae lorem bibendum, dignissim nisl sit amet, faucibus dolor. Suspendisse feugiat est est, et
+            vulputate nisl tristique nec. Morbi varius malesuada justo. Sed sodales risus ut nisi faucibus, at pretium
+            nunc volutpat. Morbi non feugiat urna. Donec a ex posuere, ultrices ex id, lacinia nisi. Etiam tempus eu
+            nisi a euismod. Sed vehicula sem eget purus maximus, in ultrices ante tincidunt.</p>
+        <p>Maecenas dignissim magna a ligula interdum rutrum. Ut laoreet hendrerit augue, at congue quam aliquet ut.
+            Etiam accumsan purus quis lorem scelerisque finibus. Nam vel lorem libero. Nullam elementum ultricies nisl,
+            ac fringilla massa iaculis at. Phasellus sollicitudin ultricies sem. Aliquam vitae ex eget diam venenatis
+            laoreet a sit amet erat. Pellentesque rhoncus turpis orci, et iaculis sapien elementum non.</p>
+        <p>Sed faucibus ex et maximus mattis. In venenatis magna ut arcu congue fermentum. Pellentesque eget scelerisque
+            mi, sit amet rutrum sem. Mauris malesuada accumsan velit, ut bibendum odio pulvinar vel. Cras sed imperdiet
+            quam. Praesent laoreet rhoncus enim. Proin tempor, libero vitae congue imperdiet, dolor ipsum fermentum
+            diam, non elementum elit orci vitae neque.</p>
+        <p>Nulla facilisi. Pellentesque a velit vitae odio aliquam dictum. Aenean laoreet, velit sed mattis scelerisque,
+            nunc arcu consectetur dolor, non mattis eros ipsum eu ex. Proin imperdiet ligula nibh, et vehicula felis
+            fermentum porta. Donec aliquet tellus vitae sodales tincidunt. Donec id dapibus tortor. Donec sit amet augue
+            a nibh dictum euismod. Aenean quis nisl ante. Quisque ante enim, varius a urna ut, luctus dapibus lorem.
+            Praesent rhoncus, libero nec consectetur dictum, enim lorem rhoncus lectus, quis pretium leo ex vitae nisi.
+            Donec sed tincidunt tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+            curae; Vestibulum sed tellus eu diam laoreet rhoncus a et nulla.</p>
+        <p>Donec id pharetra orci. Ut semper risus at nunc fermentum, vitae scelerisque ligula lacinia. Etiam eget risus
+            in eros mattis fermentum. Sed sollicitudin est erat, sed laoreet nibh varius vel. Aenean dictum ex ut nunc
+            feugiat vehicula. Sed consequat est quis pulvinar volutpat. Proin mattis mauris nisi, sed bibendum nisl
+            pellentesque a. Vivamus tempus, ex id mollis eleifend, justo leo congue nisl, ut tincidunt nisl ipsum sed
+            neque. Nunc velit neque, hendrerit at velit eget, elementum sodales massa. Pellentesque porttitor erat
+            molestie magna luctus hendrerit. Fusce vitae ultrices diam, nec faucibus sapien. Integer tellus orci, mollis
+            eu viverra at, interdum at urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+            cubilia curae; Phasellus scelerisque rhoncus accumsan. Donec maximus, dui et semper placerat, felis tortor
+            vestibulum nibh, non suscipit massa nisl ut massa. Fusce massa ligula, euismod porta quam eget, ultricies
+            fermentum orci.</p>
+    </div>
+    <div class="notification-card">
+        <div class="card-header">
+            <button class="close-btn">X</button>
+        </div>
+        <div class="card-content">
+            <h3>Novidade!</h3>
+            <p>Confira nossos novos produtos.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.notification-card').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

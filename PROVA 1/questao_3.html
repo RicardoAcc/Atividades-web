@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <style>
+            body {
+                text-align: center;
+            }
+            img {
+                width: 300px;
+                height: auto;
+            }
+            button {
+                margin: 5px;
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="pokemon-info">
+            <div class="pokemon">
+                <img
+                    id="foto_pokemon"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+                    alt="Imagem do Pokémon #1"
+                >
+                <div class="buttons">
+                    <button type="button" id="voltar">Voltar -1</button>
+                    <button type="button" id="adiantar">Adiantar +1</button>
+                </div>
+            </div>
+        </section>
+
+            <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        let num = 1;
+                        const foto = document.getElementById("foto_pokemon");
+
+                        function atualizarPokemon() {
+                            foto.src = 
+                            `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${num}.svg`;
+                            foto.alt = `Imagem do Pokémon #${num}`;
+                        }
+
+                        document.getElementById("voltar")
+                            .addEventListener("click", () => {
+                            if (num > 1) {
+                                num--;
+                                atualizarPokemon();
+                            }
+                            });
+
+                        document.getElementById("adiantar")
+                            .addEventListener("click", () => {
+                            if (num < 100) {
+                                num++;
+                                atualizarPokemon();
+                            }
+                            });
+                    });
+            </script>
+    </body>
+</html>

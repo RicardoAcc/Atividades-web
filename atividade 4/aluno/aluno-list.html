@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alunos</title>
+</head>
+<body>
+    <div  style="padding-bottom: 10px;">
+        <a href="aluno-post.html">Cadastrar Aluno</a>
+    </div>
+    <div id="alunos">
+        Carregando...
+    </div>
+    <script>
+        async function listarAlunos() {
+            const response = await fetch("http://localhost:3000/alunos/listar");
+            const json = await response.json();
+
+            let tabela = document.createElement("table");
+
+            let cabecalho = document.createElement("tr");
+            cabecalho.innerHTML = `
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Curso</th>
+                <th>IRA</th>
+                <th>Ações</th>
+            `;
+            tabela.appendChild(cabecalho);
+
+
+            for (let aluno of json) {
+                let linha = document.createElement("tr");
+
+                linha.innerHTML = `
+                    <td>${aluno.id}</td>
+                    <td>${aluno.nome}</td>
+                    <td>${aluno.curso}</td>
+                    <td>${aluno.ira}</td>
+                    <td>
+                        <a href="aluno-put.html?id=${aluno.id}">Editar</a>
+                        <a href="aluno-delete.html?id=${aluno.id}">Deletar</a>
+                    </td>
+                `;
+
+                tabela.appendChild(linha);
+            }
+
+            const divAlunos = document.getElementById("alunos");
+            divAlunos.innerHTML = "";
+            divAlunos.appendChild(tabela);
+        }
+
+        listarAlunos();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Alunos</title>
+</head>
+<body>
+    <div id="alunos">
+        <p>Insira o id do aluno: </p>
+        <input type="number" id="idAluno" />
+        <button onclick="buscarAluno()">Buscar</button>
+    </div>
+    <script>
+        async function buscarAluno() {
+            const id = document.getElementById("idAluno").value;
+            const response = await fetch(`http://localhost:3000/alunos/buscar/${id}`);
+            const json = await response.json();
+
+            const res = document.getElementById("alunos");
+            res.innerHTML = `
+                <p>Id: ${json.id}</p>
+                <p>Nome: ${json.nome}</p>
+                <p>Curso: ${json.curso}</p>
+                <p>IRA: ${json.ira}</p>
+            `
+        }
+    </script>
+</body>
+</html>
+    

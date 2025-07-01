@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Casos COVID</title>
+    <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 10px;
+            }
+            table {
+                width: 100%;
+                border: 2px solid #222;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+            tr:nth-child(even) {
+                background-color: #fafafa;
+            }
+            tr:hover {
+                background-color: #e0f7fa;
+            }
+            th {
+                background-color: #f0f0f0;
+                font: bold;
+            }
+            td {
+                color: #333;
+            }
+            h2 {
+                text-align: center;
+                color: #333;
+            }
+        </style>    
+</head>
+<body>
+    <h2>Casos de COVID-19 no Brasil</h1>
+    <div id="casos">
+        Carregando...
+    </div>
+    <h2>Média dos casos</h2>
+    <div id="media">
+        Carregando...
+    </div>
+    <script>
+        async function listarCasos() {
+            const url = "https://covid19-brazil-api.now.sh/api/report/v1";
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Erro ao buscar os dados: " + response.statusText);
+            }
+
+            let casosData = (await response.json()).data;
+            console.log(casosData);
+            let tabela = document.createElement("table");
+
+            let cabecalho = document.createElement("tr");
+            cabecalho.innerHTML = `
+                <th>Estado</th>
+                <th>Abreviação</th>
+                <th>N° casos</th>
+                <th>N° suspeitos</th>
+                <th>N° falecimentos</th>
+            `;
+            tabela.appendChild(cabecalho);
+
+
+            for (const caso of casosData) {
+                let linha = document.createElement("tr");
+
+                linha.innerHTML = `
+                    <td>${caso.uf}</td>
+                    <td>${caso.state}</td>
+                    <td>${caso.cases}</td>
+                    <td>${caso.suspects}</td>
+                    <td>${caso.deaths}</td>
+                `;
+
+                tabela.appendChild(linha);
+            }
+
+            const divAlunos = document.getElementById("casos");
+            divAlunos.innerHTML = "";
+            divAlunos.appendChild(tabela);
+
+
+            let tabelaMedia = document.createElement("table");
+            let cabecalhoMedia = document.createElement("tr");
+
+            cabecalhoMedia.innerHTML = `
+                <th>casos</th>
+                <th>suspeitos</th>
+                <th>falecimentos</th>
+            `;
+
+            tabelaMedia.appendChild(cabecalhoMedia);
+            let linhaMedia = document.createElement("tr");
+            let mediaCasos = 0;
+            let mediaSuspeitos = 0;
+            let mediaFalecimentos = 0;
+
+            for (const caso of casosData) {
+                mediaCasos += caso.cases;
+                mediaSuspeitos += caso.suspects;
+                mediaFalecimentos += caso.deaths;
+            }
+            mediaCasos = Math.round(mediaCasos / casosData.length);
+            mediaSuspeitos = Math.round(mediaSuspeitos / casosData.length);
+            mediaFalecimentos = Math.round(mediaFalecimentos / casosData.length);
+            linhaMedia.innerHTML = `
+                <td>${mediaCasos}</td>
+                <td>${mediaSuspeitos}</td>
+                <td>${mediaFalecimentos}</td>
+            `;
+            tabelaMedia.appendChild(linhaMedia);
+            const divMedia = document.getElementById("media");
+            divMedia.innerHTML = "";
+            divMedia.appendChild(tabelaMedia);
+        }
+
+        listarCasos();
+    </script>
+</body>
+</html>

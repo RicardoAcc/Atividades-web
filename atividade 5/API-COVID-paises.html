@@ -136,13 +136,17 @@
                 `;
                 
                 if (pais.country == maiorRelacao) {
-                    linha.style.backgroundColor = "red";
-                }
-                else if (pais.country == menorRelacao) {
                     linha.style.backgroundColor = "green";
                 }
-                else if (pais.deaths > mediaConfirmados) {
+                else if (pais.country == menorRelacao) {
+                    linha.style.backgroundColor = "red";
+                }
+                else if (pais.confirmed > mediaConfirmados) {
                     linha.style.backgroundColor = "yellow";
+                }
+
+                if( pais.country == "Brazil" ) {
+                    linha.style.backgroundColor = "blue";
                 }
 
                 tabela.appendChild(linha);

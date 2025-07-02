@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Casos COVID</title>
+    <title>Casos de COVID</title>
     <style>
             body {
                 font-family: Arial, sans-serif;
@@ -10,8 +10,7 @@
             }
             table {
                 width: 100%;
-                border-collapse: collapse;
-            }
+                border-collapse: collapse;}
             th, td {
                 border: 1px solid #ddd;
                 padding: 8px;
@@ -37,38 +36,41 @@
         </style>    
 </head>
 <body>
-    <h2>Casos de COVID-19 no Brasil</h1>
-        <div id="estados">
-            Carregando...
-        </div>
-    <h2>Média de casos</h2>
-        <div id="media">
-            Carregando...
-        </div>
+    <h2>Casos de COVID-19 por país</h1>
+    <div id="paises">
+        Carregando...
+    </div>
+    <h2>Média dos países</h2>
+    <div id="media">
+        Carregando...
+    </div>
     <script>
-        async function listarestados() {
-            const url = "https://covid19-brazil-api.now.sh/api/report/v1";
+        async function listarpaises() {
+            const url = "https://covid19-brazil-api.now.sh/api/report/v1/countries";
             const response = await fetch(url);
+
             if (!response.ok) {
                 throw new Error("Erro ao buscar os dados: " + response.statusText);
             }
 
-            let estadosData = (await response.json()).data;
-            console.log(estadosData);
-            
+            let paisesData = (await response.json()).data;
+            console.log(paisesData);
+
             let tabelaMedia = document.createElement("table");
             let cabecalhoMedia = document.createElement("tr");
-            
+
             cabecalhoMedia.innerHTML = `
                 <th>casos</th>
-                <th>suspeitos</th>
+                <th>confirmados</th>
                 <th>falecimentos</th>
             `;
 
             tabelaMedia.appendChild(cabecalhoMedia);
+
             let linhaMedia = document.createElement("tr");
-            let mediaestados = 0;
-            let mediaSuspeitos = 0;
+
+            let mediaCasos = 0;
+            let mediaConfirmados = 0;
             let mediaFalecimentos = 0;
 
             let maiorRelacao = "";
@@ -76,82 +78,82 @@
             let menorRelacao = "";
             let valorMenorRelacao = 10000;
 
-            for (const estado of estadosData) {
-                mediaestados += estado.cases;
-                mediaSuspeitos += estado.suspects;
-                mediaFalecimentos += estado.deaths;
+            for (const pais of paisesData) {
+                mediaCasos += pais.cases;
+                mediaConfirmados += pais.confirmed;
+                mediaFalecimentos += pais.deaths;
 
-                if (estado.deaths != 0 ){
-                    if (estado.cases/estado.deaths > valorMaiorRelacao) {
-                        maiorRelacao = estado.uf;
-                        valorMaiorRelacao = estado.cases/estado.deaths;
+                if (pais.deaths !== 0) {
+                    if (pais.confirmed/pais.deaths > valorMaiorRelacao) {
+                        maiorRelacao = pais.country;
+                        valorMaiorRelacao = pais.confirmed/pais.deaths;
                     }
-                    if (estado.cases/estado.deaths < valorMenorRelacao) {
-                        menorRelacao = estado.uf;
-                        valorMenorRelacao = estado.cases/estado.deaths;
-                    }
+                    if (pais.confirmed/pais.deaths < valorMenorRelacao) {
+                        menorRelacao = pais.country;
+                        valorMenorRelacao = pais.confirmed/pais.deaths;
+                    }   
                 }
             }
 
-            mediaestados = Math.round(mediaestados / estadosData.length);
-            mediaSuspeitos = Math.round(mediaSuspeitos / estadosData.length);
-            mediaFalecimentos = Math.round(mediaFalecimentos / estadosData.length);
+            mediaCasos = Math.round(mediaCasos / paisesData.length);
+            mediaConfirmados = Math.round(mediaConfirmados / paisesData.length);
+            mediaFalecimentos = Math.round(mediaFalecimentos / paisesData.length);
 
             linhaMedia.innerHTML = `
-                <td>${mediaestados}</td>
-                <td>${mediaSuspeitos}</td>
+                <td>${mediaCasos}</td>
+                <td>${mediaConfirmados}</td>
                 <td>${mediaFalecimentos}</td>
             `;
+
             tabelaMedia.appendChild(linhaMedia);
             const divMedia = document.getElementById("media");
             divMedia.innerHTML = "";
             divMedia.appendChild(tabelaMedia);
 
             let tabela = document.createElement("table");
-
             let cabecalho = document.createElement("tr");
+
             cabecalho.innerHTML = `
-                <th>Estado</th>
-                <th>Abreviação</th>
+                <th>País</th>
                 <th>N° casos</th>
-                <th>N° suspeitos</th>
+                <th>N° confirmados</th>
                 <th>N° falecimentos</th>
+                <th>Relação</th>
             `;
             tabela.appendChild(cabecalho);
 
-            for (const estado of estadosData) {
+            for (const pais of paisesData) {
                 let linha = document.createElement("tr");
+                const relacao = pais.deaths !== 0 ? (pais.confirmed / pais.deaths).toFixed(2) : "N/A";
+
 
                 linha.innerHTML = `
-                    <td>${estado.uf}</td>
-                    <td>${estado.state}</td>
-                    <td>${estado.cases}</td>
-                    <td>${estado.suspects}</td>
-                    <td>${estado.deaths}</td>
+                    <td>${pais.country}</td>
+                    <td>${pais.cases}</td>
+                    <td>${pais.confirmed}</td>
+                    <td>${pais.deaths}</td>
+                    <td>${relacao}</td>
                 `;
-
                 
-                if (estado.uf == maiorRelacao) {
+                if (pais.country == maiorRelacao) {
                     linha.style.backgroundColor = "red";
                 }
-                
-                else if (estado.uf == menorRelacao) {
+                else if (pais.country == menorRelacao) {
                     linha.style.backgroundColor = "green";
                 }
-                
-                else if (estado.deaths > mediaFalecimentos) {
+                else if (pais.deaths > mediaConfirmados) {
                     linha.style.backgroundColor = "yellow";
                 }
 
                 tabela.appendChild(linha);
             }
 
-            const divAlunos = document.getElementById("estados");
+            const divAlunos = document.getElementById("paises");
             divAlunos.innerHTML = "";
             divAlunos.appendChild(tabela);
         }
 
-        listarestados();
+        listarpaises();
     </script>
 </body>
 </html>
